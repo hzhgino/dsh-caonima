@@ -1,6 +1,19 @@
-# dsh-desktop-pet 🦙
+# 核动力草泥马 (dsh-caonima) 🦙⚛️
 
-DSH Web GUI 桌宠插件:屏幕右下角住着一只**网红草泥马**,它会随着当前 Agent 的工作状态改变行为。
+> DSH Web GUI 桌宠插件:屏幕右下角住着一只**网红草泥马**,它会随着当前 Agent 的工作状态改变行为。npm 包名即 `dsh-caonima`。
+
+## Quick Start
+
+```bash
+# 安装（二选一，当前推荐 GitHub 源，npm 发布后即可用包名）
+dsh plugin --profile web add github:hzhgino/dsh-caonima
+# 或（npm 发布后）            dsh plugin --profile web add dsh-caonima
+
+# 重启 web host 并刷新浏览器页面，草泥马出现在右下角
+dsh web
+```
+
+> 需要 `dsh` v0.1.5+。卸载:`dsh plugin --profile web remove dsh-caonima`,重启后桌宠消失。
 
 ## 行为一览
 
@@ -35,17 +48,17 @@ DSH Web GUI 桌宠插件:屏幕右下角住着一只**网红草泥马**,它会�
 
 ### 推荐方式：profile bundle 正式安装
 
-本包声明了 `dsh.bundle.patch`（`cordis.patch.yml` 按包名插入 `desktop-pet` 行），克隆后直接：
+本包声明了 `dsh.bundle.patch`（`cordis.patch.yml` 按包名插入 `caonima` 行），克隆后直接：
 
 ```bash
-git clone https://github.com/<YOUR-GITHUB-USER>/dsh-desktop-pet.git
-cd dsh-desktop-pet
+git clone https://github.com/hzhgino/dsh-caonima.git
+cd dsh-caonima
 dsh plugin --profile web add "$(pwd)"     # 发布到 npm 后也可按包名 add
 ```
 
 然后**重启一次 web host**（bundle 层栈的变化在启动时组装），刷新浏览器页面即可。
 
-> 卸载:`dsh plugin --profile web remove dsh-desktop-pet`,重启后桌宠消失。
+> 卸载:`dsh plugin --profile web remove dsh-caonima`,重启后桌宠消失。
 
 ### 免打包方式：patch 直挂（开发尝鲜，免重启）
 
@@ -54,8 +67,8 @@ dsh plugin --profile web add "$(pwd)"     # 发布到 npm 后也可按包名 add
 ```yaml
 # ~/.dsh/profiles/web/cordis.patch.yml
 - insert:
-    - id: desktop-pet
-      name: /绝对路径/dsh-desktop-pet/lib/index.js
+    - id: caonima
+      name: /绝对路径/dsh-caonima/lib/index.js
 ```
 
 > ⚠️ 二选一：两种方式同时生效时，同一 client 包会被两个 Loader 来源解析，composition 会显式拒绝——正式安装前先删掉 patch 里的路径 insert 行。
@@ -67,10 +80,16 @@ dsh plugin --profile web add "$(pwd)"     # 发布到 npm 后也可按包名 add
 
 ## 发布到 npm（可选）
 
-去掉 `package.json` 里的 `"private": true`，补上 `publishConfig`，然后 `npm publish`。
-之后安装就是一条命令，且支持 `update`：
+`package.json` 已设 `publishConfig` 并移除 `"private": true`，登录后即可：
 
 ```bash
-dsh plugin --profile web add dsh-desktop-pet
+npm login
+npm publish
+```
+
+发布后安装就是一条命令，且支持 `update`：
+
+```bash
+dsh plugin --profile web add dsh-caonima
 ```
 
