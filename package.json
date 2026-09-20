@@ -1,0 +1,40 @@
+{
+  "name": "dsh-desktop-pet",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DSH 桌宠插件:Web 右下角的网红草泥马,随 Agent 工作状态散步与互动 (Desktop pet plugin for the DeepSeek Harness Web GUI)",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [],
+      "immediately": true
+    }
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "desktop-pet",
+    "alpaca"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<YOUR-GITHUB-USER>/dsh-desktop-pet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/<YOUR-GITHUB-USER>/dsh-desktop-pet/issues"
+  },
+  "homepage": "https://github.com/<YOUR-GITHUB-USER>/dsh-desktop-pet#readme"
+}
