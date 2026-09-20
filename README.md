@@ -2,6 +2,8 @@
 
 > DSH Web GUI 桌宠插件:屏幕右下角住着一只**网红草泥马**,它会随着当前 Agent 的工作状态改变行为。npm 包名即 `dsh-caonima`。
 
+![preview](./preview.jpg)
+
 ## Quick Start
 
 ```bash
