@@ -1,8 +1,7 @@
 {
-  "name": "dsh-desktop-pet",
+  "name": "dsh-caonima",
   "version": "0.1.0",
-  "private": true,
-  "description": "DSH 桌宠插件:Web 右下角的网红草泥马,随 Agent 工作状态散步与互动 (Desktop pet plugin for the DeepSeek Harness Web GUI)",
+  "description": "核动力草泥马 —— DSH 桌宠插件:Web 右下角的网红草泥马,随 Agent 工作状态散步与互动 (Nuclear Alpaca, a desktop pet plugin for the DeepSeek Harness Web GUI)",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -22,19 +21,31 @@
     }
   },
   "license": "MIT",
+  "author": "hzhgino",
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "dsh",
     "deepseek-harness",
     "dsh-plugin",
     "desktop-pet",
+    "caonima",
+    "nuclear-alpaca",
     "alpaca"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<YOUR-GITHUB-USER>/dsh-desktop-pet.git"
+    "url": "git+https://github.com/hzhgino/dsh-caonima.git"
   },
   "bugs": {
-    "url": "https://github.com/<YOUR-GITHUB-USER>/dsh-desktop-pet/issues"
+    "url": "https://github.com/hzhgino/dsh-caonima/issues"
   },
-  "homepage": "https://github.com/<YOUR-GITHUB-USER>/dsh-desktop-pet#readme"
+  "homepage": "https://github.com/hzhgino/dsh-caonima#readme"
 }

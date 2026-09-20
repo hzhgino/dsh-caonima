@@ -1,8 +1,8 @@
-# dsh-desktop-pet bundle patch: used when the package is installed as a profile
+# dsh-caonima (核动力草泥马) bundle patch: used when the package is installed as a profile
 # bundle (`dsh plugin add <spec>` inside the web profile). The development
 # mount instead inserts this package by absolute path from the profile's own
 # cordis.patch.yml — keep exactly one of the two active, or the same client
 # package resolves from two Loader sources and composition rejects it.
 - insert:
-    - id: desktop-pet
-      name: dsh-desktop-pet
+    - id: caonima
+      name: dsh-caonima
