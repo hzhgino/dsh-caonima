@@ -30,7 +30,8 @@ jobs:
 
       - name: Collect traffic and render graph
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 优先用 PAT（仓库 secret TRAFFIC_TOKEN，需 repo 权限）；没有则回落到 GITHUB_TOKEN
+          GITHUB_TOKEN: ${{ secrets.TRAFFIC_TOKEN || secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python .github/scripts/traffic_graph.py
 
