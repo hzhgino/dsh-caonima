@@ -2,6 +2,8 @@
 
 > DSH Web GUI 桌宠插件:屏幕右下角住着一只**网红草泥马**,它会随着当前 Agent 的工作状态改变行为。npm 包名即 `dsh-caonima`。
 
+![views](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/hzhgino/dsh-caonima/traffic/traffic/badge.json)
+
 ![preview](./preview.jpg)
 
 ## Quick Start
@@ -94,4 +96,10 @@ npm publish
 ```bash
 dsh plugin --profile web add dsh-caonima
 ```
+
+## 访问量
+
+![views](https://raw.githubusercontent.com/hzhgino/dsh-caonima/traffic/traffic/views.svg)
+
+> 数据来自 GitHub Traffic API，由 `.github/workflows/traffic.yml` 每天自动采集；因官方只保留 14 天，脚本会把每日数据累积到 `traffic` 分支的 `history.json`，从而形成长期趋势。图例：`views` 为总浏览量，`unique visitors` 为独立访客。
 

@@ -1,0 +1,49 @@
+name: Traffic Graph
+
+# Traffic API 只保留 14 天，靠本 workflow 每天把数据落盘累积成长期历史
+on:
+  schedule:
+    - cron: "30 16 * * *"   # 每天 UTC 16:30（北京时间 00:30）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  traffic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout traffic branch
+        uses: actions/checkout@v4
+        with:
+          ref: traffic
+
+      - name: Fetch script from main
+        run: |
+          git fetch origin main --depth=1
+          git checkout origin/main -- .github/scripts/traffic_graph.py
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect traffic and render graph
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: python .github/scripts/traffic_graph.py
+
+      - name: Commit and push
+        run: |
+          git rm -r --cached .github -q || true
+          rm -rf .github
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add traffic
+          if git diff --cached --quiet; then
+            echo "[traffic] 无变化，跳过提交"
+          else
+            git commit -m "chore: update traffic graph $(date -u +%Y-%m-%d)"
+            git push origin traffic
+          fi
